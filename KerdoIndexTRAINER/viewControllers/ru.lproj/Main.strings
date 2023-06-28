@@ -1,0 +1,132 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "08W-0I-EFo"; */
+"08W-0I-EFo.text" = "Label";
+
+/* Class = "UILabel"; text = "Если значение этого индекса больше нуля, то говорят о преобладании симпатических влияний в деятельности вегетативной нервной системы, если меньше нуля, то о преобладании парасимпатических влияний, если равен нулю, то это говорит о функциональном равновесии."; ObjectID = "0wZ-38-goW"; */
+"0wZ-38-goW.text" = "Если значение этого индекса больше нуля, то говорят о преобладании симпатических влияний в деятельности вегетативной нервной системы, если меньше нуля, то о преобладании парасимпатических влияний, если равен нулю, то это говорит о функциональном равновесии.";
+
+/* Class = "UILabel"; text = "Pulse — частота пульса (уд. в мин.)."; ObjectID = "1IJ-KB-Au2"; */
+"1IJ-KB-Au2.text" = "Pulse — частота пульса (уд. в мин.).";
+
+/* Class = "UILabel"; text = "Индекс 2:"; ObjectID = "2LO-VI-Sca"; */
+"2LO-VI-Sca.text" = "Индекс 2:";
+
+/* Class = "UILabel"; text = "Адрес электронной почты спортсмена:"; ObjectID = "2f0-Y1-aEv"; */
+"2f0-Y1-aEv.text" = "Адрес электронной почты спортсмена:";
+
+/* Class = "UINavigationItem"; title = "Профиль"; ObjectID = "2wr-fT-7nR"; */
+"2wr-fT-7nR.title" = "Профиль";
+
+/* Class = "UILabel"; text = "Index=100*(1-DAD/Pulse), где:"; ObjectID = "3xB-qh-cMu"; */
+"3xB-qh-cMu.text" = "Index=100*(1-DAD/Pulse), где:";
+
+/* Class = "UILabel"; text = "DAD — диастолическое артериальное давление (мм рт. ст.);"; ObjectID = "6H3-9K-Hr7"; */
+"6H3-9K-Hr7.text" = "DAD — диастолическое артериальное давление (мм рт. ст.);";
+
+/* Class = "UILabel"; text = "-20.45"; ObjectID = "8OR-ef-2Cn"; */
+"8OR-ef-2Cn.text" = "-20.45";
+
+/* Class = "UILabel"; text = "Адрес электронной почты спортсмена:"; ObjectID = "Abo-5E-w4A"; */
+"Abo-5E-w4A.text" = "Адрес электронной почты спортсмена:";
+
+/* Class = "UILabel"; text = "emailSportsman"; ObjectID = "BRv-iu-WwL"; */
+"BRv-iu-WwL.text" = "emailSportsman";
+
+/* Class = "UINavigationItem"; title = "О KerdoIndex"; ObjectID = "Bwz-PV-3p2"; */
+"Bwz-PV-3p2.title" = "О KerdoIndex";
+
+/* Class = "UIButton"; configuration.title = "Добавить"; ObjectID = "DRA-jq-lej"; */
+"DRA-jq-lej.configuration.title" = "Добавить";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DRA-jq-lej"; */
+"DRA-jq-lej.normalTitle" = "Добавить";
+
+/* Class = "UILabel"; text = "Вход по электронной почте Gmail:"; ObjectID = "EWe-qe-ecP"; */
+"EWe-qe-ecP.text" = "Вход по электронной почте Gmail:";
+
+/* Class = "UINavigationItem"; title = "Добавить спортсмена"; ObjectID = "FO2-0c-Y3w"; */
+"FO2-0c-Y3w.title" = "Добавить спортсмена";
+
+/* Class = "UILabel"; text = "emailSportsman"; ObjectID = "HhP-4Z-Lrx"; */
+"HhP-4Z-Lrx.text" = "emailSportsman";
+
+/* Class = "UILabel"; text = "KerdoIndexTRAINER- это приложение, которое позволяет анализировать результаты статистики индекса кердо у спортсменов."; ObjectID = "HtL-MV-Jik"; */
+"HtL-MV-Jik.text" = "KerdoIndexTRAINER- это приложение, которое позволяет анализировать результаты статистики индекса кердо у спортсменов.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "IKD-wh-bXR"; */
+"IKD-wh-bXR.text" = "Label";
+
+/* Class = "UILabel"; text = "Измерение"; ObjectID = "IMf-YR-CXs"; */
+"IMf-YR-CXs.text" = "Измерение";
+
+/* Class = "UILabel"; text = "Индекс Кердо будет больше нуля если пульс больше диастолического давления, равен нулю при их равенстве и меньше нуля при превышении ДАД над пульсом."; ObjectID = "Jpl-Nb-fxy"; */
+"Jpl-Nb-fxy.text" = "Индекс Кердо будет больше нуля если пульс больше диастолического давления, равен нулю при их равенстве и меньше нуля при превышении ДАД над пульсом.";
+
+/* Class = "UILabel"; text = "Обязательно перед сохранением проверьте правильность введенной почты!"; ObjectID = "Mji-bt-HMf"; */
+"Mji-bt-HMf.text" = "Обязательно перед сохранением проверьте правильность введенной почты!";
+
+/* Class = "UIButton"; configuration.title = "Удалить историю"; ObjectID = "O4e-Aa-evP"; */
+"O4e-Aa-evP.configuration.title" = "Удалить историю";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "O4e-Aa-evP"; */
+"O4e-Aa-evP.normalTitle" = "Очистить историю";
+
+/* Class = "UILabel"; text = "Данные спортсмена пока не загружены"; ObjectID = "OS5-1j-Gox"; */
+"OS5-1j-Gox.text" = "Данные спортсмена пока не загружены";
+
+/* Class = "UILabel"; text = "Индекс 1:"; ObjectID = "PxG-Dc-G8X"; */
+"PxG-Dc-G8X.text" = "Индекс 1:";
+
+/* Class = "UIButton"; configuration.title = "Войти"; ObjectID = "aUx-Ei-Hbg"; */
+"aUx-Ei-Hbg.configuration.title" = "Войти";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aUx-Ei-Hbg"; */
+"aUx-Ei-Hbg.normalTitle" = "Войти";
+
+/* Class = "UINavigationItem"; title = "kerdoIndexTRAIN"; ObjectID = "apF-eZ-WfK"; */
+"apF-eZ-WfK.title" = "kerdoIndexTRAIN";
+
+/* Class = "UIButton"; configuration.title = "О KerdoIndexTRAINER"; ObjectID = "bJI-kK-CET"; */
+"bJI-kK-CET.configuration.title" = "О KerdoIndexTRAINER";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bJI-kK-CET"; */
+"bJI-kK-CET.normalTitle" = "О KerdoIndexTRAINER";
+
+/* Class = "UILabel"; text = "29.09 / 10:15"; ObjectID = "bod-aU-5S1"; */
+"bod-aU-5S1.text" = "29.09 / 10:15";
+
+/* Class = "UITableViewController"; title = "mainController"; ObjectID = "ccA-UH-4JU"; */
+"ccA-UH-4JU.title" = "mainController";
+
+/* Class = "UILabel"; text = "nameSportman"; ObjectID = "dQA-Tq-lzs"; */
+"dQA-Tq-lzs.text" = "nameSportman";
+
+/* Class = "UINavigationItem"; title = "Детали"; ObjectID = "eXb-qz-DfA"; */
+"eXb-qz-DfA.title" = "Детали";
+
+/* Class = "UILabel"; text = "20.45"; ObjectID = "hIg-ic-H5Z"; */
+"hIg-ic-H5Z.text" = "20.45";
+
+/* Class = "UILabel"; text = "Указанная электронная почта будет использоваться для входа в приложение. Можно использовать существующую или добавить новую."; ObjectID = "hs5-F6-raT"; */
+"hs5-F6-raT.text" = "Указанная электронная почта будет использоваться для входа в приложение. Можно использовать существующую или добавить новую.";
+
+/* Class = "UILabel"; text = "Индекс Кердо — показатель, использующийся для оценки деятельности вегетативной нервной системы. Индекс вычисляется по формуле:"; ObjectID = "ibC-gP-RE7"; */
+"ibC-gP-RE7.text" = "Индекс Кердо — показатель, использующийся для оценки деятельности вегетативной нервной системы. Индекс вычисляется по формуле:";
+
+/* Class = "UILabel"; text = "ТУТ ИНФОРМАЦИЯ ОБ АВТОРАХ, КОМПАНИИ И ПРИЛОЖЕНИИ"; ObjectID = "lrW-SL-xXg"; */
+"lrW-SL-xXg.text" = "ТУТ ИНФОРМАЦИЯ ОБ АВТОРАХ, КОМПАНИИ И ПРИЛОЖЕНИИ";
+
+/* Class = "UILabel"; text = "Указанная электронная почта будет использоваться для поиска информации о спортмене."; ObjectID = "pDt-Ym-n4V"; */
+"pDt-Ym-n4V.text" = "Указанная электронная почта будет использоваться для поиска информации о спортмене.";
+
+/* Class = "UIBarButtonItem"; title = "Профиль"; ObjectID = "r2Q-MD-2vt"; */
+"r2Q-MD-2vt.title" = "Профиль";
+
+/* Class = "UIButton"; configuration.title = "Удалить спортсмена"; ObjectID = "tSo-X8-kLU"; */
+"tSo-X8-kLU.configuration.title" = "Удалить спортсмена";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tSo-X8-kLU"; */
+"tSo-X8-kLU.normalTitle" = "Удалить спортсмена";
+
+/* Class = "UILabel"; text = "myEmailError"; ObjectID = "xie-VD-9P3"; */
+"xie-VD-9P3.text" = "myEmailError";

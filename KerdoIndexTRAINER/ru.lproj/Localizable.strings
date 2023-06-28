@@ -1,0 +1,36 @@
+// MARK: RUSSIAN STRINGS
+
+
+
+// MARK: обработка alertDialog
+"cancelInAlertDialog" = "Отмена";
+
+"DeleteInAlertDialog" = "Удалить";
+
+"ClearInAlertDialog" = "Очистить";
+
+"ExitInAlertDialog" = "Выйти";
+
+"areYouSureYouWantToDeleteTheSportsman" = "Вы уверены, что хотите удалить спортсмена?";
+
+"areYouSureYouWantToClearTheHistory" = "Вы уверены, что хотите очистить историю?";
+
+"areYouSureYouWantToGetOut" = "Вы уверены, что хотите выйти?";
+
+
+// MARK: кнопка логин/логаут
+"loginButtonTextLogin" = "Войти";
+
+"loginButtonTextLogout" = "Выйти из ";
+
+
+// MARK: resultUploadLabel
+"resultUploadLabelDataReceptionError" = "Ошибка приема данных";
+
+"resultUploadLabelNoDataAvailable" = "Нет данных";
+
+"resultUploadLabelLogInToDownload" = "Авторизируйтесь для загрузки";
+
+"resultUploadLabelUnknownError" = "Неизвестная ошибка";
+
+"resultUploadLabelChartsUpdated" = "Графики обновлены";

@@ -7,14 +7,34 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var storageYourEmailData = UserDefaultsManager()
+    var reachabilityJob = ReachabilityJob()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        FirebaseApp.configure()
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "accentColor2")
+        IQKeyboardManager.shared.toolbarManageBehaviour = .byTag
+        
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        let deviceType = UIDevice().name + " / " + UIDevice().systemName + " " + UIDevice().systemVersion
+        let infoAboutAppText = "KerdoIndex " + (appVersion ?? "") + " (" + (buildNumber ?? "") + ") / "
+        + deviceType + "\n" + "OOO \"A-MED\" " + "https://amed-rus.com/"
+        NSLog(infoAboutAppText)
+        reachabilityJob.startReachability()
+        
         return true
     }
 

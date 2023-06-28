@@ -1,0 +1,36 @@
+// MARK: ENGLISH STRINGS
+
+
+
+// MARK: обработка alertDialog
+"cancelInAlertDialog" = "Cancel";
+
+"DeleteInAlertDialog" = "Delete";
+
+"ClearInAlertDialog" = "Clear";
+
+"ExitInAlertDialog" = "Logout";
+
+"areYouSureYouWantToDeleteTheSportsman" = "Are you sure you want to delete the sportsman?";
+
+"areYouSureYouWantToClearTheHistory" = "Are you sure you want to clear the history?";
+
+"areYouSureYouWantToGetOut" = "Are you sure you want to get out?";
+
+
+// MARK: кнопка логин/логаут
+"loginButtonTextLogin" = "Login";
+
+"loginButtonTextLogout" = "Logout from ";
+
+
+// MARK: resultUploadLabel
+"resultUploadLabelDataReceptionError" = "Data reception error";
+
+"resultUploadLabelNoDataAvailable" = "No data available";
+
+"resultUploadLabelLogInToDownload" = "Log in to download";
+
+"resultUploadLabelUnknownError" = "Unknown error";
+
+"resultUploadLabelChartsUpdated" = "Charts updated";
