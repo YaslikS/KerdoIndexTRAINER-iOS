@@ -81,27 +81,24 @@ class MainViewController: UITableViewController {
     // MARK: попытка авторизации
     func tryAuth(){
         NSLog(TAG + "tryAuth: entrance")
-        NSLog("getYourEmail: \(userDefaultsManager.getYourEmail()) | getPassword: \(userDefaultsManager.getPassword())")
-        if (userDefaultsManager.getYourEmail() != "" && userDefaultsManager.getPassword() != "") {
-            NSLog(TAG + "tryAuth: getYourEmail && getPassword != empty")
-            fireBaseAuthManager.login(
-                email: userDefaultsManager.getYourEmail(),
-                pass: userDefaultsManager.getPassword(),
-                using: loginCompletionHandler
-            )
-        }
+        fireBaseAuthManager.reAuth(using: reAuthCompletionHandler)
         NSLog(TAG + "tryAuth: exit")
     }
     
-    // MARK: результат авторизации
-    lazy var loginCompletionHandler: (Int) -> Void = { doneWorking in
-        NSLog(self.TAG + "loginCompletionHandler: entrance")
+    // MARK: результат ре-авторизации
+    lazy var reAuthCompletionHandler: (Int, String) -> Void = { doneWorking, desc in
+        NSLog(self.TAG + "reAuthCompletionHandler: entrance")
         switch doneWorking {
-        case 0:  //  неудачная авторизация
-            NSLog(self.TAG + "loginCompletionHandler: doneWorking = " + String(doneWorking))
+        case 0: //  удачный вход
+            NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = 0")
+            self.fireBaseCloudManager.getCloudUserData()
+            self.invisibleNoAuthView()
+            self.tableView.reloadData()
+        case 4: //  сетевая ошибка
+            NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = 4")
+            
             self.settingStatusBar(nameColor: "redColor")
             self.navigationBar.title = "You not logged in!"
-            self.visibleNoAuthView()
             Task {
                 NSLog(self.TAG + "installNameUser: Task")
                 try? await Task.sleep(nanoseconds: 3_000_000_000)
@@ -109,17 +106,45 @@ class MainViewController: UITableViewController {
                 try? await Task.sleep(nanoseconds: 6_000_000_000)
                 self.navigationBar.title = "KerdoIndexSPORT"
             }
-            self.listSportsman.removeAll()
-            self.tableView.reloadData()
-        case 1:  //  удачная авторизация
-            NSLog(self.TAG + "loginCompletionHandler: doneWorking = " + String(doneWorking))
-            self.invisibleNoAuthView()
-            self.tableView.reloadData()
-        default:
-            NSLog(self.TAG + "loginCompletionHandler: doneWorking = " + String(doneWorking))
+            
+            let alert = UIAlertController(title: "Check your internet connection", message: nil, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
+                NSLog(self!.TAG + "reAuthCompletionHandler: UIAlertController: OK")
+            }
+            alert.addAction(okAction)
+            //  для ipad'ов
+            if let popover = alert.popoverPresentationController{
+                NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
+                //popover.sourceView = self.loginButton
+            }
+            self.present(alert, animated: true, completion: nil)
+        default:    //  НЕудачный вход
+            NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = " + String(doneWorking))
+            
+            self.settingStatusBar(nameColor: "redColor")
+            self.navigationBar.title = "You not logged in!"
+            Task {
+                NSLog(self.TAG + "installNameUser: Task")
+                try? await Task.sleep(nanoseconds: 3_000_000_000)
+                self.settingStatusBar(nameColor: "accentColor")
+                try? await Task.sleep(nanoseconds: 6_000_000_000)
+                self.navigationBar.title = "KerdoIndexSPORT"
+            }
+            
+            let alert = UIAlertController(title: "Unexpected login error. Try login manually", message: nil, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
+                NSLog(self!.TAG + "reAuthCompletionHandler: UIAlertController: OK")
+            }
+            alert.addAction(okAction)
+            //  для ipad'ов
+            if let popover = alert.popoverPresentationController{
+                NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
+                //popover.sourceView = self.loginButton
+            }
+            self.present(alert, animated: true, completion: nil)
         }
-
-        NSLog(self.TAG + "loginCompletionHandler: exit")
+    
+        NSLog(self.TAG + "reAuthCompletionHandler: exit")
     }
     
     // MARK: работа с tableView

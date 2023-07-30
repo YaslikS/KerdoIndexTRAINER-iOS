@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C277EA06C3B7D829ACC83B66 /* Pods_KerdoIndexTRAINER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDCA497C7F4E9CE38EDAA50 /* Pods_KerdoIndexTRAINER.framework */; };
+		C51A98AC2A7665FE00576A36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51A98AB2A7665FE00576A36 /* LoginViewController.swift */; };
+		C51A98AE2A76661F00576A36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51A98AD2A76661F00576A36 /* RegisterViewController.swift */; };
+		C51A98B12A7666D400576A36 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51A98B02A7666D400576A36 /* CoreDataManager.swift */; };
+		C51A98B42A76671400576A36 /* UserCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51A98B22A76671400576A36 /* UserCD+CoreDataClass.swift */; };
+		C51A98B52A76671400576A36 /* UserCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51A98B32A76671400576A36 /* UserCD+CoreDataProperties.swift */; };
 		C56B57D62937B0D300678C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B57D52937B0D300678C16 /* AppDelegate.swift */; };
 		C56B57D82937B0D300678C16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B57D72937B0D300678C16 /* SceneDelegate.swift */; };
 		C56B57DD2937B0D300678C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56B57DB2937B0D300678C16 /* Main.storyboard */; };
@@ -37,6 +42,11 @@
 		1B92AE122A1C64B242EC073A /* Pods-KerdoIndexTRAINER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KerdoIndexTRAINER.release.xcconfig"; path = "Target Support Files/Pods-KerdoIndexTRAINER/Pods-KerdoIndexTRAINER.release.xcconfig"; sourceTree = "<group>"; };
 		6B0D0241B0A116E88E8F909F /* Pods-KerdoIndexTRAINER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KerdoIndexTRAINER.debug.xcconfig"; path = "Target Support Files/Pods-KerdoIndexTRAINER/Pods-KerdoIndexTRAINER.debug.xcconfig"; sourceTree = "<group>"; };
 		ABDCA497C7F4E9CE38EDAA50 /* Pods_KerdoIndexTRAINER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KerdoIndexTRAINER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51A98AB2A7665FE00576A36 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C51A98AD2A76661F00576A36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C51A98B02A7666D400576A36 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C51A98B22A76671400576A36 /* UserCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C51A98B32A76671400576A36 /* UserCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C56B57D22937B0D300678C16 /* KerdoIndexTRAINER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KerdoIndexTRAINER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56B57D52937B0D300678C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C56B57D72937B0D300678C16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +106,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C51A98AA2A7665BE00576A36 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C56B57F02937D6DB00678C16 /* ProfileViewController.swift */,
+				C51A98AB2A7665FE00576A36 /* LoginViewController.swift */,
+				C51A98AD2A76661F00576A36 /* RegisterViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C51A98AF2A7666B100576A36 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C51A98B22A76671400576A36 /* UserCD+CoreDataClass.swift */,
+				C51A98B32A76671400576A36 /* UserCD+CoreDataProperties.swift */,
+				C51A98B02A7666D400576A36 /* CoreDataManager.swift */,
+				C56B57DE2937B0D300678C16 /* KerdoIndexTRAINER.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C51A98B62A76673100576A36 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				C580613929E43D6000727C15 /* JsonStructure.swift */,
+				C580613B29E43D7E00727C15 /* MeasureNew.swift */,
+				C580613D29E43D9E00727C15 /* MeasureJsonManager.swift */,
+				C57E909B2962E24500C09750 /* UserDefaultsManager.swift */,
+				C580613F29E43DDB00727C15 /* User.swift */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		C56B57C92937B0D300678C16 = {
 			isa = PBXGroup;
 			children = (
@@ -133,12 +176,8 @@
 		C57E90972962DE3D00C09750 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C580613929E43D6000727C15 /* JsonStructure.swift */,
-				C580613B29E43D7E00727C15 /* MeasureNew.swift */,
-				C580613D29E43D9E00727C15 /* MeasureJsonManager.swift */,
-				C57E909B2962E24500C09750 /* UserDefaultsManager.swift */,
-				C580613F29E43DDB00727C15 /* User.swift */,
-				C56B57DE2937B0D300678C16 /* KerdoIndexTRAINER.xcdatamodeld */,
+				C51A98AF2A7666B100576A36 /* CoreData */,
+				C51A98B62A76673100576A36 /* Json */,
 				C579D51029F2A6A200AF4EA0 /* sha256.swift */,
 			);
 			path = model;
@@ -151,7 +190,7 @@
 				C56B57E32937B0D400678C16 /* LaunchScreen.storyboard */,
 				C56B57EC2937C42900678C16 /* MainViewController.swift */,
 				C56B57EE2937C67100678C16 /* NameSportmanCell.swift */,
-				C56B57F02937D6DB00678C16 /* ProfileViewController.swift */,
+				C51A98AA2A7665BE00576A36 /* Profile */,
 				C57E90A52962EA1500C09750 /* AboutKerdoIndexViewController.swift */,
 				C56B57F22937D9E800678C16 /* AddSportsmanViewController.swift */,
 				C58B3D662938FBD700FA8EA5 /* DetailsSportsmanViewController.swift */,
@@ -291,20 +330,25 @@
 				C58B3D672938FBD700FA8EA5 /* DetailsSportsmanViewController.swift in Sources */,
 				C56B57F12937D6DB00678C16 /* ProfileViewController.swift in Sources */,
 				C57E90A62962EA1500C09750 /* AboutKerdoIndexViewController.swift in Sources */,
+				C51A98AC2A7665FE00576A36 /* LoginViewController.swift in Sources */,
 				C580613C29E43D7E00727C15 /* MeasureNew.swift in Sources */,
 				C580614029E43DDB00727C15 /* User.swift in Sources */,
 				C56B57E02937B0D300678C16 /* KerdoIndexTRAINER.xcdatamodeld in Sources */,
 				C57E909C2962E24500C09750 /* UserDefaultsManager.swift in Sources */,
 				C56B57D62937B0D300678C16 /* AppDelegate.swift in Sources */,
 				C580613A29E43D6000727C15 /* JsonStructure.swift in Sources */,
+				C51A98AE2A76661F00576A36 /* RegisterViewController.swift in Sources */,
+				C51A98B12A7666D400576A36 /* CoreDataManager.swift in Sources */,
 				C56B57D82937B0D300678C16 /* SceneDelegate.swift in Sources */,
 				C56B57ED2937C42900678C16 /* MainViewController.swift in Sources */,
 				C56B57EF2937C67100678C16 /* NameSportmanCell.swift in Sources */,
 				C580613E29E43D9E00727C15 /* MeasureJsonManager.swift in Sources */,
 				C57E90A02962E3C300C09750 /* ReachabilityJob.swift in Sources */,
 				C56B57F32937D9E800678C16 /* AddSportsmanViewController.swift in Sources */,
+				C51A98B52A76671400576A36 /* UserCD+CoreDataProperties.swift in Sources */,
 				C580614629E445B300727C15 /* FireBaseCloudManager.swift in Sources */,
 				C580614229E4411800727C15 /* FireBaseAuthManager.swift in Sources */,
+				C51A98B42A76671400576A36 /* UserCD+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +509,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 2333;
 				DEVELOPMENT_TEAM = 6D3HJY6B2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -493,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.amed.KerdoIndexTRAINER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -515,7 +559,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 2333;
 				DEVELOPMENT_TEAM = 6D3HJY6B2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -543,7 +587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.1;
+				MARKETING_VERSION = 0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.amed.KerdoIndexTRAINER;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

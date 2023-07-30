@@ -113,8 +113,21 @@ class FireBaseCloudManager {
         }
     }
     
+    // MARK:  получение данных пользователя
+    func getCloudUserData(){
+        db.collection("users").document(userDefaultsManager.getIdUser())
+            .getDocument{ (document, error) in
+            if let document = document, document.exists {
+                let name = document.get("name") as! String
+                self.userDefaultsManager.saveYourName(name: name)
+            } else {
+                NSLog(self.TAG + "getCloudData: Document does not exist")
+            }
+        }
+    }
+    
     // MARK: получение списка пользователей
-    func getCloudData(using completionHandler: @escaping (Int, [User]?) -> Void){
+    func getCloudData(using completionHandler: @escaping (Int, [User]?) -> Void){        
         var list: [User] = []
         db.collection("users").whereField(
             "trainerId", isEqualTo: userDefaultsManager.getIdUser()
