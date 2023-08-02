@@ -10,6 +10,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var regisLoginStackView: UIStackView!
     @IBOutlet weak var registrationButton: UIButton!
+    @IBOutlet weak var authInfoLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     
@@ -46,14 +47,9 @@ class ProfileViewController: UIViewController {
     func authTrueAction(){
         NSLog(TAG + "authTrueAction: entrance")
         
-        if (userDefaultsManager.getYourName() != "0" && userDefaultsManager.getYourName() != ""){
-            //nameTextField.text = userDefaultsManager.getYourName()
-        }
-        if (userDefaultsManager.getYourEmail() != "0"){
-            //emailTextField.text = userDefaultsManager.getYourEmail()
-        }
         stateAuthLabel.text = "You loggined as " + self.userDefaultsManager.getYourEmail()
         nameTextField.text = userDefaultsManager.getYourName()
+        authInfoLabel.text = "Click on the red button to logout"
         logoutButton.isHidden = false
         regisLoginStackView.isHidden = true
         nameStackView.isHidden = false
@@ -67,6 +63,7 @@ class ProfileViewController: UIViewController {
         
         stateAuthLabel.text = "Log in or register in the system"
         nameTextField.text = ""
+        authInfoLabel.text = "Log in if you already have an account, or register"
         logoutButton.isHidden = true
         regisLoginStackView.isHidden = false
         nameStackView.isHidden = true
@@ -168,58 +165,6 @@ class ProfileViewController: UIViewController {
     
         NSLog(self.TAG + "loginCompletionHandler: exit")
     }
-    
-    // MARK: результат проверки на тип пользователя
-//    lazy var typeUserCompletionHandler: (Int, String?) -> Void = { doneWorking, typeUser in
-//        NSLog(self.TAG + "typeUserCompletionHandler: entrance")
-//        switch doneWorking {
-//        case 1:  //  удачная проверка
-//            NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = 1")
-//            if typeUser == "t" {
-//                self.loginButton.setTitle("logout from " + self.fireBaseAuthManager.emailUser, for: UIControl.State.normal)
-//                self.loginButton.tintColor = UIColor(named: "redColor")
-//                self.loginMainLabel.text = "You loggined with " + self.fireBaseAuthManager.emailUser
-//                if self.fireBaseAuthManager.authWas {
-//                    NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = 1: authWas = true")
-//                    self.fireBaseCloudManager.addUserInCloudData()
-//                } else {
-//                    NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = 1: authWas = false")
-//                    self.fireBaseCloudManager.updateNameInCloudData()
-//                }
-//            } else {
-//                self.fireBaseAuthManager.logOut()
-//                self.deleteUserInfo()
-//                let alert = UIAlertController(title: "You are already registered as an sportsman", message: nil, preferredStyle: .actionSheet)
-//                let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
-//                    NSLog(self!.TAG + "typeUserCompletionHandler: UIAlertController: OK")
-//                }
-//                alert.addAction(okAction)
-//                //  для ipad'ов
-//                if let popover = alert.popoverPresentationController{
-//                    NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
-//                    popover.sourceView = self.loginButton
-//                }
-//                self.present(alert, animated: true, completion: nil)
-//            }
-//        case 0:
-//            NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = 0")
-//            self.fireBaseAuthManager.logOut()
-//            self.deleteUserInfo()
-//            let alert = UIAlertController(title: "Unable to verify if you are a trainer", message: nil, preferredStyle: .actionSheet)
-//            let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
-//                NSLog(self!.TAG + "typeUserCompletionHandler: UIAlertController: OK")
-//            }
-//            alert.addAction(okAction)
-//            //  для ipad'ов
-//            if let popover = alert.popoverPresentationController{
-//                NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
-//                popover.sourceView = self.loginButton
-//            }
-//            self.present(alert, animated: true, completion: nil)
-//        default:
-//            NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = default")
-//        }
-//    }
     
     // MARK: настройка view
     func settingsViews(){

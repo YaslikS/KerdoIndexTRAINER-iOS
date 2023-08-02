@@ -988,6 +988,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="2wr-fT-7nR"/>
                     <connections>
+                        <outlet property="authInfoLabel" destination="mlb-XV-WfX" id="dnx-8j-GdR"/>
                         <outlet property="loginButton" destination="nw2-QD-5DU" id="RoE-AD-Ivg"/>
                         <outlet property="logoutButton" destination="nw2-QD-5DU" id="zUN-8A-47l"/>
                         <outlet property="nameStackView" destination="1IJ-4t-weJ" id="fSC-tx-NKq"/>

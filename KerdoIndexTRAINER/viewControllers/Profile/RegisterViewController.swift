@@ -47,7 +47,10 @@ class RegisterViewController: UIViewController {
         NSLog(TAG + "RegisterButtonClicked: entrance")
         if emailValid && passValid && nameValid {
             NSLog(TAG + "RegisterButtonClicked: emailValid && passValid && nameValid == true")
-            registerAction()
+            fireBaseAuthManager.auth(email: emailTextField.text!,
+                                      pass: sha256(passwordTextField.text!),
+                                    using: registerCompletionHandler
+            )
         } else {
             NSLog(TAG + "RegisterButtonClicked: emailValid && passValid && nameValid == false")
             if emailTextField.text == "" {
@@ -60,16 +63,6 @@ class RegisterViewController: UIViewController {
                 nameWorningLabel.isHidden = false
             }
         }
-    }
-    
-    // MARK: действия по нажатию на кнопку регистрации
-    func registerAction(){
-        NSLog(TAG + "registerAction: entrance")
-        fireBaseAuthManager.auth(email: emailTextField.text!,
-                                  pass: sha256(passwordTextField.text!),
-                                using: registerCompletionHandler
-        )
-        NSLog(TAG + "registerAction: exit")
     }
     
     // MARK: результат регистрации
@@ -100,6 +93,19 @@ class RegisterViewController: UIViewController {
         case 2: //  пользователь уже существует
             NSLog(self.TAG + "registerCompletionHandler: doneWorking = 2")
             let alert = UIAlertController(title: "This user already exists", message: nil, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
+                NSLog(self!.TAG + "registerCompletionHandler: UIAlertController: OK")
+            }
+            alert.addAction(okAction)
+            //  для ipad'ов
+            if let popover = alert.popoverPresentationController{
+                NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
+                popover.sourceView = self.registerButton
+            }
+            self.present(alert, animated: true, completion: nil)
+        case 3:
+            NSLog(self.TAG + "registerCompletionHandler: doneWorking = 2")
+            let alert = UIAlertController(title: "Check your internet connection", message: nil, preferredStyle: .actionSheet)
             let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
                 NSLog(self!.TAG + "registerCompletionHandler: UIAlertController: OK")
             }
@@ -146,14 +152,17 @@ class RegisterViewController: UIViewController {
     @IBAction func passTextFieldChanged(_ sender: Any) {
         NSLog(TAG + "passTextFieldChanged: userDefaultsManager?.getPassword = " + (userDefaultsManager.getPassword()))
         passwordWorningLabel.isHidden = true
-        if (!passwordTextField.text!.isEmpty && passwordTextField.text!.count >= 8){
-            NSLog(TAG + "passTextFieldChanged: !passwordTextField.text!.isEmpty = true")
+        if (!passwordTextField.text!.isEmpty
+            && passwordTextField.text!.count >= 8
+            && !passwordTextField.text!.contains(" ")
+        ){
+            NSLog(TAG + "passTextFieldChanged: passValid = true")
             passValid = true
             passwordWorningLabel.isHidden = true
         } else {
-            NSLog(TAG + "passTextFieldChanged: !passwordTextField.text!.isEmpty = false")
+            NSLog(TAG + "passTextFieldChanged: passValid = false")
             passValid = false
-            passwordWorningLabel.text = "The password must be at least 8 characters"
+            passwordWorningLabel.text = "The password must be at least 8 characters and do not contain spaces"
             passwordWorningLabel.isHidden = false
         }
     }
