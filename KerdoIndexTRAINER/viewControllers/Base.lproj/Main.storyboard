@@ -142,6 +142,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addSportsmanButton" destination="Ise-yV-ZDD" id="r2j-GM-r9J"/>
                         <outlet property="baseEmptyView" destination="JYu-cy-nPQ" id="Zp7-mM-nms"/>
                         <outlet property="navigationBar" destination="apF-eZ-WfK" id="Ize-75-edV"/>
                         <outlet property="noAuthView" destination="S1m-0Q-G1e" id="XDj-Ai-fKx"/>

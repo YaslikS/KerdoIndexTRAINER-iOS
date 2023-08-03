@@ -7,6 +7,7 @@ class MainViewController: UITableViewController {
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var baseEmptyView: UIView!
     @IBOutlet weak var noAuthView: UIView!
+    @IBOutlet weak var addSportsmanButton: UIBarButtonItem!
     
     var userDefaultsManager = UserDefaultsManager()
     var fireBaseAuthManager = FireBaseAuthManager()
@@ -37,6 +38,8 @@ class MainViewController: UITableViewController {
         case 0:     //  неудачное получение
             NSLog(self.TAG + "getListCompletionHandler: doneWorking = 0")
             self.visibleBaseEmptyView()
+            self.listSportsman.removeAll()
+            self.tableView.reloadData()
         case 1:     // удачное получение
             NSLog(self.TAG + "getListCompletionHandler: doneWorking = 1")
             self.invisibleBaseEmptyView()
@@ -91,12 +94,13 @@ class MainViewController: UITableViewController {
         switch doneWorking {
         case 0: //  удачный вход
             NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = 0")
+            self.addSportsmanButton.isEnabled = true
             self.fireBaseCloudManager.getCloudUserData()
             self.invisibleNoAuthView()
             self.tableView.reloadData()
         case 4: //  сетевая ошибка
             NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = 4")
-            
+            self.addSportsmanButton.isEnabled = false
             self.settingStatusBar(nameColor: "redColor")
             self.navigationBar.title = "You not logged in!"
             Task {
@@ -121,6 +125,9 @@ class MainViewController: UITableViewController {
         default:    //  НЕудачный вход
             NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = " + String(doneWorking))
             
+            self.listSportsman.removeAll()
+            self.tableView.reloadData()
+            self.addSportsmanButton.isEnabled = false
             self.settingStatusBar(nameColor: "redColor")
             self.navigationBar.title = "You not logged in!"
             Task {
@@ -288,6 +295,8 @@ class MainViewController: UITableViewController {
         
         installNameUser()
         tableView.rowHeight = 80
+        
+        self.addSportsmanButton.isEnabled = fireBaseAuthManager.stateAuth()
         
         NSLog("MainViewCon: settingsViews: exit")
     }

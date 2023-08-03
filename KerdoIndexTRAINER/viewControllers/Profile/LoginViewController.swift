@@ -207,14 +207,17 @@ class LoginViewController: UIViewController {
     @IBAction func passTextFieldChanged(_ sender: Any) {
         NSLog(TAG + "passTextFieldChanged: userDefaultsManager?.getPassword = " + (userDefaultsManager.getPassword()))
         passwordWorningLabel.isHidden = true
-        if (!passwordTextField.text!.isEmpty && passwordTextField.text!.count >= 8){
+        if (!passwordTextField.text!.isEmpty
+            && passwordTextField.text!.count >= 8
+            && !passwordTextField.text!.contains(" ")
+        ){
             NSLog(TAG + "passTextFieldChanged: !passwordTextField.text!.isEmpty = true")
             passValid = true
             passwordWorningLabel.isHidden = true
         } else {
             NSLog(TAG + "passTextFieldChanged: !passwordTextField.text!.isEmpty = false")
             passValid = false
-            passwordWorningLabel.text = "The password must be at least 8 characters"
+            passwordWorningLabel.text = "The password must be at least 8 characters and do not contain spaces"
             passwordWorningLabel.isHidden = false
         }
     }
