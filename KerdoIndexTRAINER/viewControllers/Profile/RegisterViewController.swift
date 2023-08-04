@@ -123,6 +123,7 @@ class RegisterViewController: UIViewController {
             self.loginActivityIndicator.isHidden = true
             self.present(alert, animated: true, completion: nil)
         default:
+            self.loginActivityIndicator.isHidden = true
             NSLog(self.TAG + "registerCompletionHandler: doneWorking = " + String(doneWorking))
         }
     
