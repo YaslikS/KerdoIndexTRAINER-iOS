@@ -11,6 +11,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var nameWorningLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     
     
     var userDefaultsManager = UserDefaultsManager()
@@ -51,6 +52,7 @@ class RegisterViewController: UIViewController {
                                       pass: sha256(passwordTextField.text!),
                                     using: registerCompletionHandler
             )
+            loginActivityIndicator.isHidden = false
         } else {
             NSLog(TAG + "RegisterButtonClicked: emailValid && passValid && nameValid == false")
             if emailTextField.text == "" {
@@ -76,6 +78,7 @@ class RegisterViewController: UIViewController {
             self.userDefaultsManager.saveYourName(name: self.nameTextField.text ?? "")
             self.fireBaseCloudManager.addUserInCloudData()
             NSLog(self.TAG + "registerCompletionHandler: doneWorking = 1: stateAuth() = " + String(self.fireBaseAuthManager.stateAuth()))
+            self.loginActivityIndicator.isHidden = true
             self.navigationController?.popViewController(animated: true)
         case 1: //  неудачная регистрация
             NSLog(self.TAG + "registerCompletionHandler: doneWorking = " + String(doneWorking))
@@ -89,6 +92,7 @@ class RegisterViewController: UIViewController {
                 NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
                 popover.sourceView = self.registerButton
             }
+            self.loginActivityIndicator.isHidden = true
             self.present(alert, animated: true, completion: nil)
         case 2: //  пользователь уже существует
             NSLog(self.TAG + "registerCompletionHandler: doneWorking = 2")
@@ -102,6 +106,7 @@ class RegisterViewController: UIViewController {
                 NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
                 popover.sourceView = self.registerButton
             }
+            self.loginActivityIndicator.isHidden = true
             self.present(alert, animated: true, completion: nil)
         case 3:
             NSLog(self.TAG + "registerCompletionHandler: doneWorking = 2")
@@ -115,6 +120,7 @@ class RegisterViewController: UIViewController {
                 NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
                 popover.sourceView = self.registerButton
             }
+            self.loginActivityIndicator.isHidden = true
             self.present(alert, animated: true, completion: nil)
         default:
             NSLog(self.TAG + "registerCompletionHandler: doneWorking = " + String(doneWorking))
@@ -194,6 +200,8 @@ class RegisterViewController: UIViewController {
             navigationBar.standardAppearance = navBarAppearance
             navigationBar.scrollEdgeAppearance = navBarAppearance
         }
+        
+        loginActivityIndicator.isHidden = true
         
         NSLog(TAG + "settingsViews: exit")
     }
