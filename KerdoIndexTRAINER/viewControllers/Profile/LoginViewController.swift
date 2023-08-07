@@ -9,6 +9,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordWorningLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     
     var userDefaultsManager = UserDefaultsManager()
@@ -46,7 +47,7 @@ class LoginViewController: UIViewController {
         if emailValid && passValid {
             NSLog(TAG + "LoginButtonClicked: emailValid && passValid && nameValid == true")
             fireBaseAuthManager.login(email: emailTextField.text!,
-                                      pass: sha256(passwordTextField.text!),
+                                      pass: passwordTextField.text!,
                                       using: loginCompletionHandler
             )
             loginActivityIndicator.isHidden = false
@@ -60,6 +61,69 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    
+    @IBAction func forgotPassButtonClicked(_ sender: Any) {
+        NSLog(TAG + "forgotPassButtonClicked: entrance")
+        if emailValid {
+            NSLog(TAG + "RegisterButtonClicked: emailValid = " + String(emailValid))
+            fireBaseAuthManager.resetPass(
+                email: emailTextField.text!,
+                using: resetPassCompletionHandler
+            )
+        } else {
+            NSLog(TAG + "RegisterButtonClicked: emailValid = " + String(emailValid))
+            let alert = UIAlertController(title: "Enter your email address to which the password reset message will be sent", message: nil, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
+                NSLog(self!.TAG + "loginCompletionHandler: UIAlertController: OK")
+            }
+            alert.addAction(okAction)
+            //  для ipad'ов
+            if let popover = alert.popoverPresentationController{
+                NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
+                popover.sourceView = self.forgotPasswordButton
+            }
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: результат сброса пароля
+    lazy var resetPassCompletionHandler: (Int, String) -> Void = { doneWorking, desc in
+        NSLog(self.TAG + "loginCompletionHandler: entrance")
+        switch doneWorking {
+        case 0: //  удачный вход
+            NSLog(self.TAG + "loginCompletionHandler: doneWorking = " + String(doneWorking))
+            let alert = UIAlertController(title: "We have sent instructions on how to reset your password to your email!", message: nil, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
+                NSLog(self!.TAG + "loginCompletionHandler: UIAlertController: OK")
+            }
+            alert.addAction(okAction)
+            //  для ipad'ов
+            if let popover = alert.popoverPresentationController{
+                NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
+                popover.sourceView = self.forgotPasswordButton
+            }
+            self.present(alert, animated: true, completion: nil)
+        case 1: //  неудачный вход
+            NSLog(self.TAG + "loginCompletionHandler: doneWorking = " + String(doneWorking))
+            let alert = UIAlertController(title: "Error sending email: " + desc, message: nil, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .destructive) { [weak self] (_) in
+                NSLog(self!.TAG + "loginCompletionHandler: UIAlertController: OK")
+            }
+            alert.addAction(okAction)
+            //  для ipad'ов
+            if let popover = alert.popoverPresentationController{
+                NSLog(self.TAG + "clickClearButton: popoverPresentationController: for ipad's")
+                popover.sourceView = self.forgotPasswordButton
+            }
+            self.present(alert, animated: true, completion: nil)
+        default:
+            NSLog(self.TAG + "loginCompletionHandler: doneWorking = " + String(doneWorking))
+        }
+    
+        NSLog(self.TAG + "loginCompletionHandler: exit")
+    }
+    
     
     // MARK: результат входа
     lazy var loginCompletionHandler: (Int, String) -> Void = { doneWorking, desc in
@@ -129,6 +193,7 @@ class LoginViewController: UIViewController {
             self.loginActivityIndicator.isHidden = true
             self.present(alert, animated: true, completion: nil)
         default:
+            self.loginActivityIndicator.isHidden = true
             NSLog(self.TAG + "loginCompletionHandler: doneWorking = " + String(doneWorking))
         }
     
@@ -145,7 +210,7 @@ class LoginViewController: UIViewController {
                 NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = 1: typeUser == s")
                 self.fireBaseCloudManager.getCloudUserData()
                 self.userDefaultsManager.saveYourEmail(emailAddress: self.emailTextField.text ?? "")
-                self.userDefaultsManager.savePassword(password: sha256(self.passwordTextField.text ?? ""))
+                self.userDefaultsManager.savePassword(password: self.passwordTextField.text ?? "")
                 NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = 1: stateAuth() = " + String(self.fireBaseAuthManager.stateAuth()))
                 self.loginActivityIndicator.isHidden = true
                 self.navigationController?.popViewController(animated: true)
@@ -183,6 +248,7 @@ class LoginViewController: UIViewController {
             self.loginActivityIndicator.isHidden = true
             self.present(alert, animated: true, completion: nil)
         default:
+            self.loginActivityIndicator.isHidden = true
             NSLog(self.TAG + "typeUserCompletionHandler: doneWorking = default")
         }
     

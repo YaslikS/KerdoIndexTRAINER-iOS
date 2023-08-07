@@ -24,7 +24,6 @@
 		C56B57F12937D6DB00678C16 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B57F02937D6DB00678C16 /* ProfileViewController.swift */; };
 		C56B57F32937D9E800678C16 /* AddSportsmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56B57F22937D9E800678C16 /* AddSportsmanViewController.swift */; };
 		C574D4A6298938DE006C5370 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C574D4A8298938DE006C5370 /* Localizable.strings */; };
-		C579D51129F2A6A200AF4EA0 /* sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579D51029F2A6A200AF4EA0 /* sha256.swift */; };
 		C57E909C2962E24500C09750 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E909B2962E24500C09750 /* UserDefaultsManager.swift */; };
 		C57E90A02962E3C300C09750 /* ReachabilityJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E909F2962E3C300C09750 /* ReachabilityJob.swift */; };
 		C57E90A62962EA1500C09750 /* AboutKerdoIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57E90A52962EA1500C09750 /* AboutKerdoIndexViewController.swift */; };
@@ -36,6 +35,7 @@
 		C580614429E4447100727C15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C580614329E4447100727C15 /* GoogleService-Info.plist */; };
 		C580614629E445B300727C15 /* FireBaseCloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C580614529E445B300727C15 /* FireBaseCloudManager.swift */; };
 		C58B3D672938FBD700FA8EA5 /* DetailsSportsmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58B3D662938FBD700FA8EA5 /* DetailsSportsmanViewController.swift */; };
+		C5C1EBE62A801970008388E6 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C1EBE52A801970008388E6 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +63,6 @@
 		C574D4A3298933C2006C5370 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C574D4A7298938DE006C5370 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C574D4A9298938E2006C5370 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C579D51029F2A6A200AF4EA0 /* sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sha256.swift; sourceTree = "<group>"; };
 		C57E909B2962E24500C09750 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		C57E909F2962E3C300C09750 /* ReachabilityJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityJob.swift; sourceTree = "<group>"; };
 		C57E90A52962EA1500C09750 /* AboutKerdoIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutKerdoIndexViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		C580614329E4447100727C15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C580614529E445B300727C15 /* FireBaseCloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseCloudManager.swift; sourceTree = "<group>"; };
 		C58B3D662938FBD700FA8EA5 /* DetailsSportsmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSportsmanViewController.swift; sourceTree = "<group>"; };
+		C5C1EBE52A801970008388E6 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +178,7 @@
 			children = (
 				C51A98AF2A7666B100576A36 /* CoreData */,
 				C51A98B62A76673100576A36 /* Json */,
-				C579D51029F2A6A200AF4EA0 /* sha256.swift */,
+				C5C1EBE52A801970008388E6 /* Strings.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -326,7 +326,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C579D51129F2A6A200AF4EA0 /* sha256.swift in Sources */,
 				C58B3D672938FBD700FA8EA5 /* DetailsSportsmanViewController.swift in Sources */,
 				C56B57F12937D6DB00678C16 /* ProfileViewController.swift in Sources */,
 				C57E90A62962EA1500C09750 /* AboutKerdoIndexViewController.swift in Sources */,
@@ -349,6 +348,7 @@
 				C580614629E445B300727C15 /* FireBaseCloudManager.swift in Sources */,
 				C580614229E4411800727C15 /* FireBaseAuthManager.swift in Sources */,
 				C51A98B42A76671400576A36 /* UserCD+CoreDataClass.swift in Sources */,
+				C5C1EBE62A801970008388E6 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

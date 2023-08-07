@@ -5,7 +5,6 @@ class FireBaseAuthManager{
     
     var userDefaultsManager = UserDefaultsManager()
     var emailUser: String!
-    //var registeredNow = false
     let TAG = "FireBaseAuthManager: "
     
     // MARK:  состояние авторизации
@@ -30,14 +29,18 @@ class FireBaseAuthManager{
                 let errCode = AuthErrorCode(_nsError: error as NSError)
                 switch errCode.code {
                 case .networkError:             //  ошибка сети
+                    NSLog(self.TAG + "reAuth: error: networkError")
                     completionHandler(4, "")
                 case .userNotFound:             //  такого пользователя нет
+                    NSLog(self.TAG + "reAuth: error: userNotFound")
                     self.logOut()
                     completionHandler(3, "")
                 case .wrongPassword:            //  неправильный пароль
+                    NSLog(self.TAG + "reAuth: error: wrongPassword")
                     self.logOut()
                     completionHandler(2, "")
                 default:                        //  непредвиденная ошибка
+                    NSLog(self.TAG + "reAuth: error: default")
                     self.logOut()
                     completionHandler(1, error.localizedDescription)
                 }
@@ -59,10 +62,13 @@ class FireBaseAuthManager{
                 let errCode = AuthErrorCode(_nsError: error! as NSError)
                 switch errCode.code {
                 case .emailAlreadyInUse:        //  пользователь уже существует
+                    NSLog(self.TAG + "reAuth: error: emailAlreadyInUse")
                     completionHandler(2, "")
                 case .networkError:             //  ошибка сети
+                    NSLog(self.TAG + "reAuth: error: networkError")
                     completionHandler(3, "")
                 default:                        //  непредвиденная ошибка
+                    NSLog(self.TAG + "reAuth: error: default")
                     completionHandler(1, error!.localizedDescription)
                 }
                 return
@@ -90,12 +96,16 @@ class FireBaseAuthManager{
                 let errCode = AuthErrorCode(_nsError: error! as NSError)
                 switch errCode.code {
                 case .networkError:             //  ошибка сети
+                    NSLog(self.TAG + "reAuth: error: networkError")
                     completionHandler(4, "")
                 case .userNotFound:             //  такого пользователя нет
+                    NSLog(self.TAG + "reAuth: error: userNotFound")
                     completionHandler(3, "")
                 case .wrongPassword:            //  неправильный пароль
+                    NSLog(self.TAG + "reAuth: error: wrongPassword")
                     completionHandler(2, "")
                 default:                        //  непредвиденная ошибка
+                    NSLog(self.TAG + "reAuth: error: default")
                     completionHandler(1, error!.localizedDescription)
                 }
                 return
@@ -113,6 +123,7 @@ class FireBaseAuthManager{
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            NSLog(TAG + "logOut: succes")
         } catch let signOutError as NSError {
             NSLog(TAG + "logOut: Error signing out: " + signOutError.debugDescription)
         }
@@ -129,6 +140,22 @@ class FireBaseAuthManager{
             } else {
                 //  Учетная запись удалена
                 NSLog(self.TAG + "deleteAccount: deleted")
+                completionHandler(0, "")
+            }
+        }
+    }
+    
+    // MARK: сброс пароля
+    func resetPass(email: String, using completionHandler: @escaping (Int, String) -> Void) {
+        NSLog("resetPass: entrance")
+        Auth.auth().sendPasswordReset(withEmail: email){ error in
+            if let error = error {
+                //  Произошла ошибка
+                NSLog(self.TAG + "resetPass: error")
+                completionHandler(1, error.localizedDescription)
+            } else {
+                //  Учетная запись удалена
+                NSLog(self.TAG + "resetPass: Successful")
                 completionHandler(0, "")
             }
         }

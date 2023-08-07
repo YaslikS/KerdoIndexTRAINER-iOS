@@ -729,7 +729,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="00G-Ff-EbU" userLabel="Stack View Auth">
-                                <rect key="frame" x="30" y="163" width="368" height="212.66666666666663"/>
+                                <rect key="frame" x="30" y="163" width="368" height="262"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login in to your kerdoIndex account:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6M-33-ySv">
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="27.666666666666668"/>
@@ -808,6 +808,14 @@
                                             <constraint firstAttribute="trailing" secondItem="ePy-FS-rzW" secondAttribute="trailing" id="hsb-s3-2Md"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jja-Gq-Fkd" userLabel="forgot Password Button">
+                                        <rect key="frame" x="85" y="227.66666666666669" width="198" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forgot your password?"/>
+                                        <connections>
+                                            <action selector="forgotPassButtonClicked:" destination="LON-fx-1X2" eventType="touchUpInside" id="6Tf-G6-sEZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="g6M-33-ySv" firstAttribute="leading" secondItem="00G-Ff-EbU" secondAttribute="leading" id="7Ng-ed-tKs"/>
@@ -833,6 +841,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="Ntb-MZ-udm" id="qDE-vB-2yT"/>
                         <outlet property="emailWorningLabel" destination="AjZ-Df-6jd" id="SEV-Fw-Sgf"/>
+                        <outlet property="forgotPasswordButton" destination="Jja-Gq-Fkd" id="z2n-Qt-fWg"/>
                         <outlet property="loginActivityIndicator" destination="ePy-FS-rzW" id="Dja-Z4-9ON"/>
                         <outlet property="loginButton" destination="PUe-QH-qVI" id="n9L-Kw-NgF"/>
                         <outlet property="navigationBar" destination="pPd-lH-ddP" id="Y5K-qp-By2"/>
