@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     var userDefaultsManager = UserDefaultsManager()
     var fireBaseAuthManager = FireBaseAuthManager()
     var fireBaseCloudManager = FireBaseCloudManager()
+    var coreDataManager = CoreDataManager()
     let TAG = "ProfileViewController: "
     
     // MARK: при запуске экрана...
@@ -99,6 +100,8 @@ class ProfileViewController: UIViewController {
             NSLog(TAG + "settingsViews: stateAuth = false")
             authFalseAction()
         }
+        
+        NSLog(TAG + "uploudViewsVC: PASS = " + (coreDataManager.getPass() ?? "---"))
         NSLog(TAG + "uploudViewsVC: exit")
     }
     
@@ -145,6 +148,7 @@ class ProfileViewController: UIViewController {
         case 0: //  удачное удаление
             NSLog(self.TAG + "loginCompletionHandler: doneWorking = 0")
             self.userDefaultsManager.deleteUserInfo()
+            self.coreDataManager.deletePass()
             self.updateViewsVC()
         case 1: //  неудачное удаление
             NSLog(self.TAG + "loginCompletionHandler: doneWorking = 1")
