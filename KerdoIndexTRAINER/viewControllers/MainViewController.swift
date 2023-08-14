@@ -85,7 +85,10 @@ class MainViewController: UITableViewController {
     // MARK: попытка авторизации
     func tryAuth(){
         NSLog(TAG + "tryAuth: entrance")
-        fireBaseAuthManager.reAuth(using: reAuthCompletionHandler)
+        fireBaseAuthManager.reAuth(
+            pass: coreDataManager.getPass()!,
+            using: reAuthCompletionHandler
+        )
         NSLog(TAG + "tryAuth: exit")
     }
     
@@ -94,15 +97,9 @@ class MainViewController: UITableViewController {
         NSLog(self.TAG + "reAuthCompletionHandler: entrance")
         switch doneWorking {
         case 0: //  удачный вход
-            NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = 0")
+            NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = 0: passCD = " + (self.coreDataManager.getPass() ?? "-----"))
             self.addSportsmanButton.isEnabled = true
             self.fireBaseCloudManager.getCloudUserData()
-            if (self.userDefaultsManager.getPassword() != "0"
-                && self.userDefaultsManager.getPassword() != ""
-            ){
-                self.coreDataManager.savePass(pass: self.userDefaultsManager.getPassword())
-                NSLog(self.TAG + "reAuthCompletionHandler: doneWorking = 0: passCD = " + self.coreDataManager.getPass()!)
-            }
             self.invisibleNoAuthView()
             self.tableView.reloadData()
         case 4: //  сетевая ошибка

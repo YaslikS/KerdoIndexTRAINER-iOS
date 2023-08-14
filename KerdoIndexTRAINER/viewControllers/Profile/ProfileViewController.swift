@@ -120,7 +120,8 @@ class ProfileViewController: UIViewController {
         let logoutAction = UIAlertAction(title: NSLocalizedString("ExitInAlertDialog", comment: ""), style: .destructive) { [weak self] (_) in
             NSLog(self!.TAG + "loginAction: logoutAction: entrance")
             self!.fireBaseAuthManager.logOut()
-            self!.userDefaultsManager.deleteUserInfo()
+            //self!.userDefaultsManager.deleteUserInfo()
+            //self!.coreDataManager.deletePass()
             self!.updateViewsVC()
         }
         let deleteAccountAction = UIAlertAction(title: "Delete Account", style: .destructive) { [weak self] (_) in
