@@ -144,6 +144,8 @@ class FireBaseAuthManager{
             } else {
                 //  Учетная запись удалена
                 NSLog(self.TAG + "deleteAccount: deleted")
+                // TODO:    coreDataManager.deletePass()
+                // TODO:    userDefaultsManager.deleteUserInfo()
                 completionHandler(0, "")
             }
         }

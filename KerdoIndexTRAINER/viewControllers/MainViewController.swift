@@ -85,10 +85,12 @@ class MainViewController: UITableViewController {
     // MARK: попытка авторизации
     func tryAuth(){
         NSLog(TAG + "tryAuth: entrance")
-        fireBaseAuthManager.reAuth(
-            pass: coreDataManager.getPass()!,
-            using: reAuthCompletionHandler
-        )
+        if (coreDataManager.getPass() != nil){
+            fireBaseAuthManager.reAuth(
+                pass: coreDataManager.getPass()!,
+                using: reAuthCompletionHandler
+            )
+        }
         NSLog(TAG + "tryAuth: exit")
     }
     
