@@ -22,3 +22,10 @@ KerdoIndexTRAINER - это приложение, которое позволяе
 
 Если значение этого показателя больше нуля, то говорят о преобладании симпатических влияний в деятельности вегетативной нервной системы, если меньше нуля, то о преобладании парасимпатических влияний, если равно нулю, то это свидетельствует о функциональном равновесии.
 Индекс Кердо будет больше нуля, если пульс превышает диастолическое давление, равен нулю, если они равны, и меньше нуля, если ДАД превышает пульс.
+
+![MainT](https://github.com/YaslikS/KerdoIndexTRAINER-iOS/assets/58375980/18ed345a-86c7-412d-b9ef-307455700d3c)
+![sportsmanT](https://github.com/YaslikS/KerdoIndexTRAINER-iOS/assets/58375980/c5e76c2e-7fe0-4324-8d6a-e8dd30e16278)
+![sportsmanInfoT](https://github.com/YaslikS/KerdoIndexTRAINER-iOS/assets/58375980/e9077f11-08d4-4b50-922b-0d6b2d33ed80)
+![profileT](https://github.com/YaslikS/KerdoIndexTRAINER-iOS/assets/58375980/746bb577-06ae-4979-b706-0007567aa3b7)
+
+
